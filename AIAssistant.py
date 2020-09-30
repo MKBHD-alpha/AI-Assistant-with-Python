@@ -7,7 +7,7 @@ import os
 import smtplib
 print("Initializing JARVIS")
 
-MASTER="MKBHD-alpha"
+MASTER="Deepraj"
 engine=pyttsx3.init('sapi5')
 voices= engine.getProperty('voices')
 engine.setProperty('voice',voices[0].id)
@@ -35,7 +35,7 @@ def wishMe():
 def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        r.adjust_for_ambient_noise(source,duration=2)
+        r.adjust_for_ambient_noise(source,duration=0)
         print("Listening...")
         audio = r.listen(source)
         
@@ -101,3 +101,31 @@ elif 'play music' in query.lower():
 elif 'what is the time' in query.lower():
     strTime=datetime.datetime.now().strftime("%H:%M,%S")
     speak(f"Hello {MASTER} The Time is {strTime}")
+elif 'open wikipedia' in query.lower():
+    url= "https://www.wikipedia.org/"
+    print('Opening Wikipedia')
+    speak("Opening Wikipedia for you")
+    chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    webbrowser.get(chrome_path).open(url)
+    
+elif 'open github' in query.lower():
+    url= "https://github.com/"
+    print('Opening Github..')
+    speak("Opening Github for you")
+    chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    webbrowser.get(chrome_path).open(url)
+
+elif 'open Amazon' in query.lower():
+    url= "https://www.amazon.in/?ref=icp_country_us_t1"
+    print('Opening Amazon..')
+    speak("Opening Amazon for you")
+    chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    webbrowser.get(chrome_path).open(url)
+
+elif 'open Udemy' in query.lower():
+    url= "https://www.udemy.com/"
+    print('Opening Udemy..')
+    speak("Opening Udemy for you")
+    chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    webbrowser.get(chrome_path).open(url)
+    
