@@ -50,6 +50,14 @@ def takeCommand():
         
     return query
 
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login("user's email", 'PASSWORD')
+    server.sendmail('user email', to, content)
+    server.close()
+
 #To shut down the computer
 # def shutdown(): 
 
@@ -128,4 +136,18 @@ elif 'open Udemy' in query.lower():
     speak("Opening Udemy for you")
     chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
     webbrowser.get(chrome_path).open(url)
+    
+# for email sending function first change setting of your email and set it to control access to less secure app
+elif 'email to' in query:
+            try:
+                speak("Sir, give me your message")
+                print('Give message.......')
+                content = takeCommand()
+                to = "reciever email"
+                sendEmail(to, content)
+                print('Sending mail........')
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry master . I am not able to send this email")
     
