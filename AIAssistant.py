@@ -137,6 +137,13 @@ elif 'open Udemy' in query.lower():
     chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
     webbrowser.get(chrome_path).open(url)
     
+elif 'open Udacity' in query.lower():
+    url= "https://www.udacity.com/"
+    print('Opening Udacity..')
+    speak("Opening Udacityfor you")
+    chrome_path='C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    webbrowser.get(chrome_path).open(url)
+    
 # for email sending function first change setting of your email and set it to control access to less secure app
 elif 'email to' in query:
             try:
